@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% load static %} {% block body %}
+<div class="row">
+    <div class="col-sm-12">
+        {% if request.GET.search %}
+        <p class="lead"> Results for {{request.GET.search}}</p>
+        <hr> {% endif %}
+    </div>
+    <div class="col-lg-9">
+        <h1>Tweets</h1>
+        <hr>
+        <div id="tweet_container">
+
+        </div>
+    </div>
+    <div class='col-sm-3 col-xm-12'>
+        <h1>Users</h1>
+        <hr> {% for user in users %}
+        <a href="/{{user.username}}">{{user.username}}</a> {%empty%}
+        <h3>No Users Found.</h3>
+        {% endfor %}
+
+    </div>
+
+
+</div>
+{% endblock body %} {% block script %}
+<script>
+    $(document).ready(function() {
+
+        loadTweetContainer("tweet_container");
+
+    });
+</script>
+{% endblock script %}

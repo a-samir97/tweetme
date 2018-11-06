@@ -1,0 +1,7 @@
+{% load static %}
+<form method="POST" class='tweet_create'>
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit" class="btn btn-outline-dark">
+        Tweet
+    </button>
+</form>

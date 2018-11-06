@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% load static %} {% block body %}
+<div class="row">
+    <div class='col-sm-3 col-xm-12'>
+        <h3 class="font-weight-bold">{{request.user}}</h3>
+        <hr>
+    </div>
+
+    <div class="col-lg-9">
+        <div style="margin-bottom:15px;">
+            {% include "create_view.html" %}
+            <hr>
+        </div>
+
+        <div id="tweet_container" data-url="/api/tweets/">
+        </div>
+        <a href="#" id='loadmore'>Load more tweets</a>
+    </div>
+</div>
+<br> {% endblock body %} {% block script %}
+<script>
+    $(document).ready(function() {
+        loadTweetContainer("tweet_container");
+    });
+</script>
+{% endblock script %}

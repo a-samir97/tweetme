@@ -1,0 +1,18 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Mali:600" rel="stylesheet">
+<nav class="navbar navbar-light rounded" style="background-color: #e3f2fd; margin-bottom:10px;">
+    <a class="navbar-brand twitter_title" href={% url 'home' %} style="font-family:'Mali', cursive;font-size:30px;">Tweetme</a>
+    <img src={% static "img/twitter.png" %} class="img twitter_icon" alt="twitter">
+    <form id='navbar_search_form' class="form-inline  my-2 my-lg-0" method="GET" action='{% url "search" %}'>
+        <div class="form-group">
+            <input class="form-control mr-sm-2" type="text" id='search' name="search" placeholder="Search">
+        </div>
+        <button class="btn btn-outline-danger" style="margin-right:5px" type="submit"> Search</button>
+        <a style="margin-right:5px;" href={% url 'profiles:accounts-details' request.user %}><button class="btn btn-outline-primary"
+                type="button">
+                Profile
+            </button></a>
+        <a href='/logout/'><button class="btn btn-outline-primary" type="button"> Logout</button></a>
+
+    </form>
+</nav>

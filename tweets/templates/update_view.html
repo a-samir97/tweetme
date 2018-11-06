@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% load static %} {% block body %}
+<form method="POST" action="">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            {% csrf_token %} {{form.as_p}}
+            <button type="submit" class="btn btn-outline-dark">
+                Update Tweet
+            </button>
+        </div>
+    </div>
+
+</form> {% endblock body %}
